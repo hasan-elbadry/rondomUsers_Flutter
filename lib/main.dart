@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:random_user_using_api/providers/home_page_provider.dart';
 
 import 'screens/home_page.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: ChangeNotifierProvider(child: const HomePage(),create: (context) => HomePageProvider()),
       debugShowCheckedModeBanner: false,
     );
   }

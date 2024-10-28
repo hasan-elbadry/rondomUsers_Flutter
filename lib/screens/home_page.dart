@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:random_user_using_api/providers/home_page_provider.dart';
 import '../widgets/user_card_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,8 +25,16 @@ class HomePage extends StatelessWidget {
             color: index.isEven ? Colors.blue : Colors.black,
           );
         },
-        itemBuilder: (context, index) => card(),
-        itemCount: 6,
+        itemBuilder: (context, index) =>
+            Consumer(builder: (context, HomePageProvider provider, child) {
+          if (provider.users == null) {
+            provider.setData();
+            return const CircularProgressIndicator();
+          }
+          return card(provider.users![0][index]!, provider.users![1][index]!,
+              provider.users![2][index]!);
+        }),
+        itemCount: 5,
       ),
     );
   }

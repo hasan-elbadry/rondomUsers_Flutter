@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:random_user_using_api/providers/home_page_provider.dart';
 
-Widget card() {
+Widget card(String name, String email, String pic) {
   return Card(
     elevation: 10,
     child: Container(
       padding: const EdgeInsets.all(12),
       child: Row(
         children: [
-          const CircleAvatar(
-            backgroundImage: NetworkImage('url'),
+          CircleAvatar(
+            radius: 35,
+            backgroundImage: NetworkImage(pic),
           ),
           Container(
             padding: const EdgeInsets.only(left: 10),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('data', style: TextStyle(fontSize: 20)),
-                Text('data', style: TextStyle(fontSize: 20))
+                Text(name,
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold)),
+                Text(email,
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold))
               ],
             ),
-          )
+          ),
         ],
       ),
     ),
