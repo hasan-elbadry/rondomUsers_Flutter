@@ -8,9 +8,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = Provider.of<HomePageProvider>(context);
     return Scaffold(
       floatingActionButton: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            prov.setData();
+          },
           child: const Icon(
             Icons.refresh,
             size: 45,
