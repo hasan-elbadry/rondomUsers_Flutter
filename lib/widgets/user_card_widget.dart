@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:random_user_using_api/providers/home_page_provider.dart';
 
 Widget card(String name, String email, String pic) {
   return Card(
