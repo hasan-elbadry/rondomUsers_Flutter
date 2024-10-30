@@ -34,8 +34,8 @@ class HomePage extends StatelessWidget {
             provider.setData();
             return const CircularProgressIndicator();
           }
-          return card(provider.users![0][index]!, provider.users![1][index]!,
-              provider.users![2][index]!);
+          return card(provider.users!.data[index]['name'], provider.users!.data[index]['location'],
+              provider.users!.data[index]['pic']);
         }),
         itemCount: 5,
       ),
